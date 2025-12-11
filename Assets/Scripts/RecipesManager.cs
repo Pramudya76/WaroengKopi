@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RecipesManager : MonoBehaviour
 {
+    public List<Recipe> recipes;
     // Start is called before the first frame update
     void Start()
     {
