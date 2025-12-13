@@ -10,6 +10,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Vector3 originalPos;
     Collider2D col;
     public LayerMask layer;
+    public Slot currentSlot;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +41,15 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             Debug.Log("tdk jalan");
             Slot slot = hitSlot.collider.GetComponent<Slot>();
-            if(slot != null && slot.transform.childCount == 0)
+            if(slot != null && slot.canAccept(this.data))
             {
-                transform.position = slot.transform.position;
-                parentAfterDrag = slot.transform;
-                transform.SetParent(slot.transform);
+                if(currentSlot != null)
+                {
+                    currentSlot.removeItem(this);
+                }
+                slot.addItem(this);
                 col.enabled = true;
+
                 return;
             }
         } else

@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecipesManager : MonoBehaviour
+public class WaterHeater : MonoBehaviour
 {
-    public List<Recipe> recipes;
-    [HideInInspector] public static RecipesManager recipesManager;
     // Start is called before the first frame update
     void Start()
     {
-        if(recipesManager == null)
-        {
-            recipesManager = this;
-        }
+        
     }
 
     // Update is called once per frame
