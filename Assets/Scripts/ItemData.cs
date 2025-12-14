@@ -10,7 +10,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Vector3 originalPos;
     Collider2D col;
     public LayerMask layer;
-    public Slot currentSlot;
+    public IDropTarget currentSlot;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,22 +39,21 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         RaycastHit2D hitSlot = Physics2D.Raycast(mousePos, Vector2.up,0.001f, layer);
         if(hitSlot.collider != null)
         {
-            Debug.Log("tdk jalan");
-            Slot slot = hitSlot.collider.GetComponent<Slot>();
-            if(slot != null && slot.canAccept(this.data))
+            IDropTarget target = hitSlot.collider.GetComponent<IDropTarget>();
+            //Debug.Log(target.canAccept(this.data));
+            if(target != null && target.canAccept(this.data))
             {
-                if(currentSlot != null)
-                {
-                    currentSlot.removeItem(this);
-                }
-                slot.addItem(this);
+
+                currentSlot?.removeItem(this);
+                Debug.Log("tdk jalan");
+                target.addItem(this);
                 col.enabled = true;
 
                 return;
             }
         } else
         {
-            Debug.Log("tdk jalan");
+            //Debug.Log("tdk jalan");
         }
         
         transform.position = originalPos;

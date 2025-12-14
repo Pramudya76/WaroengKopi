@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IDropTarget
 {
     public List<ItemObjects> ingredients = new();
     public GameObject IngredientsObject;
