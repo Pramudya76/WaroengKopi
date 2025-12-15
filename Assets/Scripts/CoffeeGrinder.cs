@@ -9,6 +9,9 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget
     public ItemObjects[] cupWater; 
     public ItemObjects CoffeePowder;
     public GameObject ResultObject;
+
+    public Transform DropPoint => transform;
+
     public void addItem(ItemData data)
     {
         slotCoffeGrinder.ingredients.Add(data.data);
@@ -45,6 +48,7 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget
         itemData.currentSlot = slotCoffeGrinder;
         SpriteRenderer spriteRenderer = resultBlackCoffee.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = itemObjects.sprite;
+        //itemData.EnableDrag();
     }
 
     public bool canAccept(ItemObjects itemObjects)

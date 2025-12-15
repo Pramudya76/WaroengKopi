@@ -9,9 +9,13 @@ public class Slot : MonoBehaviour, IDropTarget
 {
     public List<ItemObjects> ingredients = new();
     public GameObject IngredientsObject;
+
+    public Transform DropPoint => transform;
+
     public void addItem(ItemData item)
     {
         ingredients.Add(item.data);
+        //item.EnableDrag();
         item.currentSlot = this;
         item.transform.SetParent(transform);
         item.transform.localPosition = Vector2.zero;

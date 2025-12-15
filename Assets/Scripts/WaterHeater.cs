@@ -8,6 +8,9 @@ public class WaterHeater : MonoBehaviour, IDropTarget
     public ItemObjects cupWater;
     public ItemObjects cupHotWater;
     public GameObject ResultObject;
+
+    public Transform DropPoint => transform;
+
     public void addItem(ItemData data)
     {
         Destroy(data.gameObject);
@@ -43,6 +46,7 @@ public class WaterHeater : MonoBehaviour, IDropTarget
         SpriteRenderer spriteRenderer = result.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = itemObjects.sprite;
         result.transform.localPosition = Vector2.zero;
+        //itemData.EnableDrag();
     }
 
     // Start is called before the first frame update

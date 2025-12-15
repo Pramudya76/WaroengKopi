@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemData : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     public ItemObjects data;
     [HideInInspector] public Transform parentAfterDrag;
@@ -11,29 +12,40 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     Collider2D col;
     public LayerMask layer;
     public IDropTarget currentSlot;
+    private bool canDrag;
+
     // Start is called before the first frame update
     void Start()
     {
         col = GetComponent<Collider2D>();
     }
-    public void OnBeginDrag(PointerEventData eventData)
+
+    void Update()
     {
-        Debug.Log("Jalan");
-        //transform.SetParent(transform.parent);
-        //transform.SetAsLastSibling();
-        originalPos = transform.position;
-        col.enabled = false;
+        if(!canDrag) return;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        transform.position = pos;
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            canDrag = false;
+            TryDrop();
+        }
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void StartDrag()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        transform.position = mousePos;
-        //parentAfterDrag = transform.parent;
+        canDrag = true;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void EnableDrag()
+    {
+        canDrag = true;
+        col.enabled = true;
+    }
+
+    void TryDrop()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hitSlot = Physics2D.Raycast(mousePos, Vector2.up,0.001f, layer);
@@ -45,20 +57,30 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             {
 
                 currentSlot?.removeItem(this);
-                Debug.Log("tdk jalan");
+                Debug.Log("jowoiiiiii");
                 target.addItem(this);
                 col.enabled = true;
 
                 return;
             }
-        } else
+        } 
+        if(currentSlot != null)
         {
-            //Debug.Log("tdk jalan");
+            transform.SetParent(currentSlot.DropPoint);
+            transform.localPosition = Vector2.zero;
+            return;
         }
         
-        transform.position = originalPos;
-        col.enabled = true;
+        Destroy(gameObject);
     }
 
-    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        EnableDrag();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        TryDrop();
+    }
 }

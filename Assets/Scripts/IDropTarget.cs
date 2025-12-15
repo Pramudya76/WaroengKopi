@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface IDropTarget
 {
+    Transform DropPoint {get;}
     bool canAccept(ItemObjects itemObjects);
     void addItem(ItemData data);
     void removeItem(ItemData data);
