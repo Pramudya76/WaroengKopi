@@ -52,12 +52,12 @@ public class ItemData : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
         if(hitSlot.collider != null)
         {
             IDropTarget target = hitSlot.collider.GetComponent<IDropTarget>();
-            //Debug.Log(target.canAccept(this.data));
+            Debug.Log(target.canAccept(this.data));
             if(target != null && target.canAccept(this.data))
             {
 
                 currentSlot?.removeItem(this);
-                Debug.Log("jowoiiiiii");
+                //Debug.Log("jowoiiiiii");
                 target.addItem(this);
                 col.enabled = true;
 
