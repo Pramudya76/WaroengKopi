@@ -8,13 +8,15 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget
     public Slot slotCoffeGrinder;
     public ItemObjects[] cupWater; 
     public ItemObjects CoffeePowder;
+    public ItemObjects Coffee;
     public GameObject ResultObject;
 
     public Transform DropPoint => transform;
 
     public void addItem(ItemData data)
     {
-        slotCoffeGrinder.ingredients.Add(data.data);
+        //slotCoffeGrinder.ingredients.Add(data.data);
+        slotCoffeGrinder.ingredients.Add(CoffeePowder);
         Destroy(data.gameObject);
         StartCoroutine(cdCoffeeGrinder(3f));
     }
@@ -53,7 +55,7 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget
 
     public bool canAccept(ItemObjects itemObjects)
     {
-        if(itemObjects != CoffeePowder) return false;
+        if(itemObjects != Coffee) return false;
         return slotCoffeGrinder.ingredients.Any(i => cupWater.Contains(i));
     }
 
