@@ -7,17 +7,11 @@ public class RecipesManager : MonoBehaviour
     public List<Recipe> recipes;
     [HideInInspector] public static RecipesManager recipesManager;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(recipesManager == null)
         {
             recipesManager = this;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -81,7 +81,7 @@ public class Slot : MonoBehaviour, IDropTarget
 
     void Update()
     {
-        Debug.Log(ingredients.Count);
+        //Debug.Log(ingredients.Count);
 
         // foreach(var e in ingredients)
         // {

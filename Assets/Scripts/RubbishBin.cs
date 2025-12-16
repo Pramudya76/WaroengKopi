@@ -8,7 +8,7 @@ public class RubbishBin : MonoBehaviour, IDropTarget
 
     public void addItem(ItemData data)
     {
-        data.currentSlot?.removeItem(data);
+        //data.currentSlot?.removeItem(data);
         Destroy(data.gameObject);
     }
 

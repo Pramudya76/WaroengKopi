@@ -6,11 +6,12 @@ public class CustomerOrder : MonoBehaviour, IDropTarget
 {
     public ItemObjects orderData;
     public Transform DropPoint => transform;
-
+    public Customer customer;
     public void addItem(ItemData data)
     {
         data.currentSlot?.removeItem(data);
         Destroy(data.gameObject);
+        customer.CompleteOrder(this.orderData);
         Debug.Log("Order berhasil");
     }
 
@@ -24,10 +25,6 @@ public class CustomerOrder : MonoBehaviour, IDropTarget
         
     }
 
-    public void CompleteOrder()
-    {
-        
-    }
 
     // Start is called before the first frame update
     void Start()
