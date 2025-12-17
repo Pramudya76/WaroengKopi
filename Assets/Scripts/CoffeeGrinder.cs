@@ -50,6 +50,7 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget
         itemData.currentSlot = slotCoffeGrinder;
         SpriteRenderer spriteRenderer = resultBlackCoffee.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = itemObjects.sprite;
+        slotCoffeGrinder.ingredients.Add(itemObjects);
         //itemData.EnableDrag();
     }
 

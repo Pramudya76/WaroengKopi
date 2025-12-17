@@ -20,7 +20,7 @@ public class OrderManager : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(spawnCD);
-
+            Debug.Log("New Customer");
             OrderSlot empetySlot = GetEmpetySlot();
             if(empetySlot == null) continue;
             SpawnOrders(empetySlot);
