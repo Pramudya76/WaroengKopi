@@ -104,7 +104,7 @@ MonoBehaviour:
   parentAfterDrag: {fileID: 0}
   layer:
     serializedVersion: 2
-    m_Bits: 1920
+    m_Bits: 3968
 --- !u!61 &-899154822145495232
 BoxCollider2D:
   m_ObjectHideFlags: 0
