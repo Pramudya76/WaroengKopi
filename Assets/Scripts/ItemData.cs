@@ -12,6 +12,7 @@ public class ItemData : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     Collider2D col;
     public LayerMask layer;
     public IDropTarget currentSlot;
+    public IProduct product;
     private bool canDrag;
 
     // Start is called before the first frame update
@@ -55,9 +56,10 @@ public class ItemData : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             Debug.Log(target.canAccept(this.data));
             if(target != null && target.canAccept(this.data))
             {
-
+                product?.Commit();
+                product = null;
+                
                 currentSlot?.removeItem(this);
-                //Debug.Log("jowoiiiiii");
                 target.addItem(this);
                 col.enabled = true;
 
@@ -70,7 +72,7 @@ public class ItemData : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
             transform.localPosition = Vector2.zero;
             return;
         }
-        
+        product?.Cancel();
         Destroy(gameObject);
     }
 

@@ -1128,7 +1128,7 @@ Transform:
   m_GameObject: {fileID: 633604678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.427, y: 0.168, z: 0}
+  m_LocalPosition: {x: 0.427, y: 0.019, z: 0}
   m_LocalScale: {x: 0.103944495, y: 0.40397704, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1200,10 +1200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9381624f46c4f12428f9e3169164076e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotWaterHeater: {fileID: 1754137949}
   cupWater: {fileID: 11400000, guid: d65686ca4081d444b94067cf6303e83a, type: 2}
   cupHotWater: {fileID: 11400000, guid: 7560193728ea1014d8f79c2c1686259e, type: 2}
   ResultObject: {fileID: 6611084751625553459, guid: dcf7825f9c8bb484d91d1e00eeccdeb7, type: 3}
+  Stok: []
 --- !u!61 &633604682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1430,13 +1430,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f4edc59b9855f4aa05047d0839fedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotCoffeGrinder: {fileID: 1222617162}
   cupWater:
   - {fileID: 11400000, guid: 7560193728ea1014d8f79c2c1686259e, type: 2}
   - {fileID: 11400000, guid: 5fca0ca1be6408c4cba1c005f47b097d, type: 2}
   CoffeePowder: {fileID: 11400000, guid: 23a4f62999b4c3c45af70784d97af279, type: 2}
   Coffee: {fileID: 11400000, guid: 709032ac8185c644caa1eddd7d3c8f28, type: 2}
   ResultObject: {fileID: 6611084751625553459, guid: dcf7825f9c8bb484d91d1e00eeccdeb7, type: 3}
+  Stok: []
 --- !u!1 &720247863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,7 +2071,7 @@ Transform:
   m_GameObject: {fileID: 1119489455}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2291, y: 0.226, z: 0}
+  m_LocalPosition: {x: 0.2291, y: 0.134, z: 0}
   m_LocalScale: {x: 0.103944495, y: 0.40397707, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2089,10 +2089,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1eed5e609020e441947fe077e1fbe61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotWater: {fileID: 2027394469}
   Cup: {fileID: 11400000, guid: 165799ef6f3855b43a65bcaba5e1991b, type: 2}
   CupWater: {fileID: 11400000, guid: d65686ca4081d444b94067cf6303e83a, type: 2}
   ResultObject: {fileID: 6611084751625553459, guid: dcf7825f9c8bb484d91d1e00eeccdeb7, type: 3}
+  Stok: []
 --- !u!61 &1119489458
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2767,7 +2767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1222617159
 Transform:
   m_ObjectHideFlags: 0
@@ -4285,7 +4285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1754137949
 Transform:
   m_ObjectHideFlags: 0
@@ -5041,7 +5041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2027394469
 Transform:
   m_ObjectHideFlags: 0

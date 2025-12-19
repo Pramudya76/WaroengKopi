@@ -21,7 +21,6 @@ public class RubbishBin : MonoBehaviour, IDropTarget
     {
         
     }
-
     // Start is called before the first frame update
     void Start()
     {
