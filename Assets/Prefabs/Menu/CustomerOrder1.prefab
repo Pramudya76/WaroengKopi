@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
   orders: []
+  Score: 30
 --- !u!114 &2627724008363872334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb083b3e85ca87c4abe9bc78a30285ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 15
+  duration: 20
   SliderObjt: {fileID: 8647281032931805291, guid: 4c6f38a37d981714a82704a1472e3cd0, type: 3}
   PosSlider: {fileID: 2235657686858768658}
   sliderOrder: {fileID: 0}

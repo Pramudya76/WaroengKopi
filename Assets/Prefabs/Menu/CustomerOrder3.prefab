@@ -894,6 +894,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
   orders: []
+  Score: 70
 --- !u!114 &39162488737557856
 MonoBehaviour:
   m_ObjectHideFlags: 0

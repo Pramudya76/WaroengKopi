@@ -9,7 +9,7 @@ public class Customer : MonoBehaviour
     public OrderSlot slot;
     public List<ItemObjects> orders = new();
     private TimerOrder timerOrder;
-
+    public int Score;
     void Start()
     {
         timerOrder = GetComponent<TimerOrder>();
@@ -19,9 +19,10 @@ public class Customer : MonoBehaviour
         orders.Remove(order);
         if(orders.Count == 0)
         {
+            LevelManager.LM.AddScore(Score);
             slot.Clear();
-            Destroy(gameObject);
-            Destroy(timerOrder.sliderOrder.gameObject);
+            Destroy(gameObject, 0.01f);
+            Destroy(timerOrder.sliderOrder.gameObject, 0.01f);
         }
     }
 
