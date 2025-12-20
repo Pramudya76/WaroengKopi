@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 [System.Serializable]
@@ -11,11 +12,16 @@ public class LevelProgress
     public bool unlocked;
 }
 
+[System.Serializable]
+public class SaveData
+{
+    public List<LevelProgress> levels;
+}
+
 public class SaveManager
 {
     public static List<LevelProgress> levelProgresses = new();
-    // Start is called before the first frame update
-    
+    private static string savePath = Application.persistentDataPath + "/Data.json";
     public static LevelProgress SaveResult(int levelID, int newScore, LvButtonData lvData)
     {
         var lv = levelProgresses.Find(i => i.levelID == levelID);
@@ -44,7 +50,7 @@ public class SaveManager
         {
             next.unlocked = true;
         }
-
+        Save();
         return lv;
     }
 
@@ -67,5 +73,27 @@ public class SaveManager
     public static LevelProgress GetProgress(int levelID)
     {
         return levelProgresses.Find(i => i.levelID == levelID);
+    }
+
+    public static void Save()
+    {
+        SaveData data =  new SaveData
+        {
+            levels = levelProgresses  
+        };
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(savePath, json);
+    }
+
+    public static void Load()
+    {
+        if(!File.Exists(savePath)) return;
+
+        string json = File.ReadAllText(savePath);
+        SaveData data = JsonUtility.FromJson<SaveData>(json);
+        if(data != null && data.levels != null)
+        {
+            levelProgresses = data.levels;
+        }
     }
 }

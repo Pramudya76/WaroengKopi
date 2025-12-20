@@ -10,6 +10,7 @@ public class LevelSelectUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SaveManager.Load();
         SaveManager.SetLevel(allLvData);
         foreach(var data in allLvData)
         {
