@@ -8,10 +8,13 @@ public class CustomerOrder : MonoBehaviour, IDropTarget
     public Transform DropPoint => transform;
     public Customer customer;
     public GameObject OrderCompleted;
+    private bool isDone = false;
     public void addItem(ItemData data)
     {
+        if(isDone) return;
         data.currentSlot?.removeItem(data);
         Destroy(data.gameObject);
+        isDone = true;
         customer.CompleteOrder(this.orderData);
         Debug.Log("Order berhasil");
         OrderCompleted.gameObject.SetActive(true);
@@ -19,7 +22,8 @@ public class CustomerOrder : MonoBehaviour, IDropTarget
 
     public bool canAccept(ItemObjects itemObjects)
     {
-        return itemObjects == orderData;
+        
+        return itemObjects == orderData && !isDone;
     }
 
     public void removeItem(ItemData data)

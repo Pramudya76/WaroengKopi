@@ -96,4 +96,13 @@ public class SaveManager
             levelProgresses = data.levels;
         }
     }
+
+    public static void RemoveData()
+    {
+        if(File.Exists(savePath))
+        {
+            File.Delete(savePath);
+            levelProgresses.Clear();
+        }
+    }
 }
