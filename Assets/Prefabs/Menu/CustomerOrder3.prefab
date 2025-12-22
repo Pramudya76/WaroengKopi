@@ -895,6 +895,8 @@ MonoBehaviour:
   slot: {fileID: 0}
   orders: []
   Score: 70
+  OrderDone: {fileID: 8300000, guid: dd0e9f0cb432dd94a9997be3e01b359f, type: 3}
+  GetMoney: {fileID: 8300000, guid: ca938214c37af3c4098a925970ab0424, type: 3}
 --- !u!114 &39162488737557856
 MonoBehaviour:
   m_ObjectHideFlags: 0

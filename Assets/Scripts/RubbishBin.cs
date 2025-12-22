@@ -5,10 +5,11 @@ using UnityEngine;
 public class RubbishBin : MonoBehaviour, IDropTarget
 {
     public Transform DropPoint => transform;
-
+    public AudioClip rubbishBin;
     public void addItem(ItemData data)
     {
         //data.currentSlot?.removeItem(data);
+        AudioManager.audioManager.PlaySFX(rubbishBin);
         Destroy(data.gameObject);
     }
 

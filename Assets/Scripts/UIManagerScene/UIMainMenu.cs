@@ -13,6 +13,7 @@ public class UIMainMenu : MonoBehaviour
     public Slider MasterSlider;
     public Slider MusicSlider;
     public Slider SFXSlider;
+    public AudioClip ButtonPress;
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,27 +41,32 @@ public class UIMainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
         SceneManager.LoadScene("ChoseLevel");
     }
 
     public void NewGame()
     {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
         SaveManager.RemoveData();
         SceneManager.LoadScene("ChoseLevel");
     }
 
     public void ExitGame()
     {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
         Application.Quit();
     }
 
     public void SettingPanelOpen()
     {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
         settingPanel.SetActive(true);
     }
 
     public void SettingPanelClose()
     {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
         settingPanel.SetActive(false);
         PlayerPrefs.Save();
     }
@@ -74,5 +80,9 @@ public class UIMainMenu : MonoBehaviour
         MasterSlider.value = Master;
         MusicSlider.value = Music;
         SFXSlider.value = SFX;
+
+        MasterSlider.onValueChanged.AddListener(AudioManager.audioManager.SetMasterVolume);
+        MusicSlider.onValueChanged.AddListener(AudioManager.audioManager.SetMusicVolume);
+        SFXSlider.onValueChanged.AddListener(AudioManager.audioManager.SetSFXVolume);
     }
 }

@@ -14,6 +14,8 @@ public class WaterHeater : MonoBehaviour, IDropTarget, IProduct
     private bool Reserved;
     private enum HeaterState {NotReady, Waiting, Ready};
     private HeaterState state = HeaterState.NotReady;
+    public AudioClip WatersHeater;
+    private bool sfxSound = false;
     void Start()
     {
         
@@ -24,7 +26,7 @@ public class WaterHeater : MonoBehaviour, IDropTarget, IProduct
     {
         if(state == HeaterState.Waiting)
         {
-            StartCoroutine(cdHotWater(2f));
+            StartCoroutine(cdHotWater(1.5f));
         }else if(state == HeaterState.Ready)
         {
             if(Input.GetMouseButtonDown(0) && HasStok())
@@ -53,9 +55,15 @@ public class WaterHeater : MonoBehaviour, IDropTarget, IProduct
 
     private IEnumerator cdHotWater(float duration)
     {
+        if(!sfxSound)
+        {
+            sfxSound = true;
+            AudioManager.audioManager.PlaySFX(WatersHeater);
+        }
         state = HeaterState.Waiting;
         yield return new WaitForSeconds(duration);
         state = HeaterState.Ready;
+        sfxSound = false;
         Debug.Log("Air panas sudah siap");
     }
 

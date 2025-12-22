@@ -7,7 +7,7 @@ public class SpawnIngredienst : MonoBehaviour
 {
     public GameObject IngredientSpawnObject;
     public ItemObjects itemObjects;
-
+    public AudioClip SpawnIngredient;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,7 @@ public class SpawnIngredienst : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if(hit && hit.collider.gameObject == gameObject)
             {
+                AudioManager.audioManager.PlaySFX(SpawnIngredient);
                 SpawnAndDrag();
             }
         }

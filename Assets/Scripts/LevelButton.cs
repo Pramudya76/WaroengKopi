@@ -16,36 +16,46 @@ public class LevelButton : MonoBehaviour
     public GameObject Locked;
     private Button button;
     public TextMeshProUGUI textLv;
-    void Start()
+    public AudioClip ButtonPress;
+    void Awake()
     {
         button = GetComponent<Button>();
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(SelectLevel);
+    }
+
+    public void Init(LvButtonData data)
+    {
+        buttonData = data;
         ApplyData();
     }
     public void SelectLevel()
     {
-        // if (buttonData == null)
-        // {
-        //     Debug.LogError("buttonData NULL", this);
-        //     return;
-        // }
+        if (buttonData == null)
+        {
+            Debug.LogError("buttonData NULL", this);
+            Debug.Log(SceneManager.GetActiveScene().name);
+            return;
+        }
 
-        // if (GameManager.GM == null)
-        // {
-        //     Debug.LogError("GameManager.GM NULL");
-        //     return;
-        // }
-        GameManager.GM.SetCurrentLevel(buttonData);
+        if (GameManager.GM == null)
+        {
+            Debug.LogError("GameManager.GM NULL");
+            return;
+        }
         var progres = SaveManager.GetProgress(buttonData.levelID);
-        
+    
+        GameManager.GM.SetCurrentLevel(buttonData);
         if(progres == null || !progres.unlocked) return;
+        AudioManager.audioManager.PlaySFX(ButtonPress);
         SceneManager.LoadScene("InGame");
     }
 
     void ApplyData()
     {
         var progres = SaveManager.GetProgress(buttonData.levelID);
+
+        if(progres == null) return;
 
         bool unlocked = progres!= null && progres.unlocked;
         int starCount = progres != null ? progres.Star : 0;

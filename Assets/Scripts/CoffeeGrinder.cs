@@ -16,6 +16,8 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget, IProduct
     private enum CoffeeState {NotReady, Waiting, Ready};
     private CoffeeState state = CoffeeState.NotReady;
     private ItemObjects result;
+    public AudioClip GrinderCoffee;
+    private bool sfxSound = false;
     void Start()
     {
         
@@ -39,13 +41,14 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget, IProduct
             StartCoroutine(cdCoffeeGrinder(3f));
         }else if(state == CoffeeState.Ready)
         {
-            Debug.Log("3");
+            Debug.Log("sudah jadiiiiiiiiiiiiii");
             if(Input.GetMouseButtonDown(0) && HasStok())
             {
                 Vector2 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 RaycastHit2D hit = Physics2D.Raycast(MousePos, Vector2.zero);
                 if(hit && hit.collider.gameObject == gameObject)
                 {
+                    
                     Reserve();
                     spawnResult(result);
                     
@@ -68,9 +71,15 @@ public class CoffeeGrinder : MonoBehaviour, IDropTarget, IProduct
 
     private IEnumerator cdCoffeeGrinder(float duration)
     {
+        if(!sfxSound)
+        {
+            sfxSound = true;
+            AudioManager.audioManager.PlaySFX(GrinderCoffee);
+        }
         state = CoffeeState.Waiting;
         yield return new WaitForSeconds(duration);
         state = CoffeeState.Ready;
+        sfxSound = false;
         MixProses();
         Debug.Log("Black Coffee sudah jadi");
     }

@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
         {
             GM = this;
             DontDestroyOnLoad(gameObject);
+        }else
+        {
+            Destroy(gameObject);
         }
     }
 

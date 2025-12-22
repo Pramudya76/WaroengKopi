@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class UIChoseLevel : MonoBehaviour
 {
     public static UIChoseLevel uIChoseLevel {get; private set;}
+    public AudioClip ButtonPress;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class UIChoseLevel : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
         SceneManager.LoadScene("MainMenu");
     }
 }

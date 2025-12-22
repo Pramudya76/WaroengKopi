@@ -126,19 +126,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1547269300955824127}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9083781462759233459, guid: 6c7226384e63fc84da23bed61d67a9c2, type: 3}
-        m_TargetAssemblyTypeName: LevelButton, Assembly-CSharp
-        m_MethodName: SelectLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2382306005618543657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,13 +139,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477f4a4e2afb7f640af87a389770b5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonData: {fileID: 0}
+  buttonData: {fileID: 11400000, guid: 0b18ff8ed30f5c549af6ddb4fa8261ec, type: 2}
   Button1Star: {fileID: 5119646482592225064}
   Button2Star: {fileID: 5147615327149675638}
   Button3Star: {fileID: 8434002642410046811}
   Button0Star: {fileID: 2315610120461628224}
   Locked: {fileID: 7718729310393788474}
   textLv: {fileID: 1407550381805406466}
+  ButtonPress: {fileID: 8300000, guid: 2eb319c427823d84d98ffc4337288449, type: 3}
 --- !u!1 &691352904431631958
 GameObject:
   m_ObjectHideFlags: 0

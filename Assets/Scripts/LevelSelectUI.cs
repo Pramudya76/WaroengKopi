@@ -15,7 +15,7 @@ public class LevelSelectUI : MonoBehaviour
         foreach(var data in allLvData)
         {
             var btn = Instantiate(ButtonPrefabs, PanelPos);
-            btn.buttonData = data;
+            btn.Init(data);
         }
     }
 
