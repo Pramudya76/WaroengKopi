@@ -25,17 +25,17 @@ public class LevelButton : MonoBehaviour
     }
     public void SelectLevel()
     {
-        if (buttonData == null)
-        {
-            Debug.LogError("buttonData NULL", this);
-            return;
-        }
+        // if (buttonData == null)
+        // {
+        //     Debug.LogError("buttonData NULL", this);
+        //     return;
+        // }
 
-        if (GameManager.GM == null)
-        {
-            Debug.LogError("GameManager.GM NULL");
-            return;
-        }
+        // if (GameManager.GM == null)
+        // {
+        //     Debug.LogError("GameManager.GM NULL");
+        //     return;
+        // }
         GameManager.GM.SetCurrentLevel(buttonData);
         var progres = SaveManager.GetProgress(buttonData.levelID);
         

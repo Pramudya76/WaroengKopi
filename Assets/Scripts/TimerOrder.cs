@@ -9,7 +9,7 @@ public class TimerOrder : MonoBehaviour
 {
     public float duration;
     public GameObject SliderObjt;
-    private Canvas CanvasPos;
+    private Canvas TimerSpawnPos;
     public Transform PosSlider;
     [HideInInspector]public Slider sliderOrder;
     private SpriteRenderer sr;
@@ -18,7 +18,7 @@ public class TimerOrder : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        CanvasPos = GameObject.FindWithTag("Canvas").GetComponent<Canvas>();
+        TimerSpawnPos = GameObject.FindWithTag("TimerSpawnPos").GetComponent<Canvas>();
         SliderOrderSpawn();
     }
 
@@ -37,7 +37,7 @@ public class TimerOrder : MonoBehaviour
 
     public void SliderOrderSpawn()
     {
-        GameObject orderTimer = Instantiate(SliderObjt, PosSlider.position, SliderObjt.transform.rotation, CanvasPos.transform);
+        GameObject orderTimer = Instantiate(SliderObjt, PosSlider.position, SliderObjt.transform.rotation, TimerSpawnPos.transform);
         sliderOrder = orderTimer.GetComponent<Slider>();
         sliderOrder.maxValue = duration;
         RectTransform rectTransform = orderTimer.GetComponent<RectTransform>();
