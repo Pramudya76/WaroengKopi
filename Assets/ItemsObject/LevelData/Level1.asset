@@ -15,5 +15,5 @@ MonoBehaviour:
   levelID: 1
   LevelDuration: 180
   star3Score: 500
-  star2Score: 350
-  star1Score: 10
+  star2Score: 400
+  star1Score: 300

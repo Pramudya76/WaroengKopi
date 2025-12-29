@@ -9,6 +9,7 @@ public class UIInGame : MonoBehaviour
     public static UIInGame uIInGame;
     public GameObject PausedPanel;
     public GameObject SettingPanel;
+    public GameObject MenuPanel;
     public Slider MasterSlider;
     public Slider MusicSlider;
     public Slider SFXSlider;
@@ -53,6 +54,20 @@ public class UIInGame : MonoBehaviour
         PausedPanel.SetActive(true);
         SettingPanel.SetActive(false);
         PlayerPrefs.Save();
+    }
+
+    public void MenuPanelOpen()
+    {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
+        PausedPanel.SetActive(false);
+        MenuPanel.SetActive(true);
+    }
+
+    public void MenuPanelClose()
+    {
+        AudioManager.audioManager.PlaySFX(ButtonPress);
+        PausedPanel.SetActive(true);
+        MenuPanel.SetActive(false);
     }
 
     public void Exit()

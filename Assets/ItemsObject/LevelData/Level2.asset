@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelID: 2
   LevelDuration: 210
-  star3Score: 750
-  star2Score: 500
-  star1Score: 250
+  star3Score: 700
+  star2Score: 550
+  star1Score: 400

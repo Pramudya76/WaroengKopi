@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb6e9917826fdb947875e8185a5927cb, type: 3}
-  m_Name: Level6
+  m_Name: Level9
   m_EditorClassIdentifier: 
-  levelID: 6
-  LevelDuration: 330
-  star3Score: 1000
-  star2Score: 750
-  star1Score: 600
+  levelID: 9
+  LevelDuration: 420
+  star3Score: 1750
+  star2Score: 1500
+  star1Score: 1250
