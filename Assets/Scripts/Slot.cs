@@ -71,6 +71,9 @@ public class Slot : MonoBehaviour, IDropTarget
         itemData.currentSlot = this;
         SpriteRenderer spriteRenderer = Ingredienst.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = itemData.data.sprite;
+        Transform resultTransform = Ingredienst.GetComponent<Transform>();
+        resultTransform.localScale = new Vector3(1, 1.7f, 1);
+
     }
 
     // Start is called before the first frame update
