@@ -215,7 +215,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Condiment (85)_0: 9088339227088851656
+      Condiment (85)_1: 5301898754012214352
+      Condiment (85)_2: -1448656602985727874
+      Condiment (85)_3: -5146003140156684501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

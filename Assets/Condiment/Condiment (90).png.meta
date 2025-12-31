@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Condiment (90)_0: 1889202454520283904
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

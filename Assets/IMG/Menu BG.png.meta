@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9e194ac7f7f0eee4e866813ec69182eb
+guid: 76b25c6f200411243b6e7b3b9886ac77
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8327451466207688274
-    second: Condiment (35)_0
+      213: 6352119909865867321
+    second: Menu BG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Condiment (35)_0
+      name: Menu BG_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 16
-        width: 105
-        height: 128
+        x: 0
+        y: 0
+        width: 2000
+        height: 1414
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2567d9fdcfc019370800000000000000
-      internalID: 8327451466207688274
+      spriteID: 938cd3e2763472850800000000000000
+      internalID: 6352119909865867321
       vertices: []
       indices: 
       edges: []
@@ -143,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Condiment (35)_0: 8327451466207688274
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
