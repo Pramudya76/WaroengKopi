@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI textTimer;
     public TextMeshProUGUI textScore;
     public GameObject PanelGameFinished;
+    private bool isFinished = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +32,9 @@ public class LevelManager : MonoBehaviour
         TimeLeft -= Time.deltaTime;
         textTimer.text = "Timer : " + (int)TimeLeft;
         textScore.text = "Score : " + Score;
-        if(TimeLeft <= 0)
+        if(TimeLeft <= 0 && !isFinished)
         {
+            isFinished = true;
             SaveManager.SaveResult(LvData.levelID, Score, LvData);
             PanelGameFinished.gameObject.SetActive(true);
             Time.timeScale = 0;

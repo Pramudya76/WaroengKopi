@@ -46,7 +46,8 @@ public class SaveManager
         else if(lv.BestScores >= lvData.star1Score) lv.Star = 1;
 
         var next = GetProgress(lvData.levelID + 1);
-        if(next != null && !next.unlocked)
+        var current = GetProgress(lvData.levelID);
+        if(next != null && !next.unlocked && current.Star > 0)
         {
             next.unlocked = true;
         }
